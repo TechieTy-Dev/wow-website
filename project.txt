@@ -1,0 +1,14 @@
+Wow Website
+
+Home Page - Sidebar with Links to Alliance, Horde, Expansions, Classes, Content with 
+Alliance Pages- Content: H2 with "For the Alliance" - Add Emblems - low opacity bg image with gradient
+Horde Pages - Content: H2 with "For the Horde" - Add Emblems - low opacity bg image with gradient
+Expansions - TBC, WOTLK, CATA, MOP, WOD, LEGION, BOA, SHADOWLANDS
+Classes - DK, DH, MAGE, ROUGE, WARRIOR, PALLY, WARLOCK, PRIEST, MONK, HUNTER, SHAMAN, DRUID 
+
+Classes Info - Description, Roles, Resources, Weapons, Armor, Features
+
+
+Images for all classes and all expansions
+
+Expansions - Level, New Map, New Classes or Races, Description

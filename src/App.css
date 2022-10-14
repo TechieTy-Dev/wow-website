@@ -1,38 +1,542 @@
-.App {
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  font-family: 'warcraft';
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+
+.sidebar{
+  background-color: rgba(20,20,20, 0.5);
+  width: 300px;
+  height: 100vh;
+  color: whitesmoke;
+  position: fixed;
+}
+
+.nav-flyout{
+  position: absolute;
+  background-color: rgba(8, 13, 17,0.9);
+  z-index: 9;
+  width: 150px;
+  left: 150px;
+  top: 50vh;
+  height: 50vh;
+  
+}
+
+.expansions-menu{
+  visibility: hidden;
+  /*hidessub-menu*/opacity: 0;
+  position: absolute;
+  top: 100%;
+  left: 200px;
+  width: 70%;
+  transform: translateX(-2em);
+  z-index: -1;
+  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+  -webkit-transform: translateX(-2em);
+  -moz-transform: translateX(-2em);
+  -ms-transform: translateX(-2em);
+  -o-transform: translateX(-2em);
+}
+
+.expansions-parent:focus .expansions-menu,
+.expansions-parent:focus-within .expansions-menu,
+.expansions-parent:hover .expansions-menu {
+  visibility: visible;
+  /*showssub-menu*/opacity: 1;
+  z-index: 1;
+  background-color: rgba(41, 41, 41,0.8);
+  transform: translateY(-150%);
+  -webkit-transform: translateY(-150%);
+  -moz-transform: translateY(-150%);
+  -ms-transform: translateY(-150%);
+  -o-transform: translateY(-150%);
+}
+.classes-menu{
+  visibility: hidden;
+  /*hidessub-menu*/opacity: 0;
+  position: absolute;
+  top: 120%;
+  left: 182px;
+  width: 80%;
+  transform: translateX(-2em);
+  z-index: -1;
+  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+  -webkit-transform: translateX(-2em);
+  -moz-transform: translateX(-2em);
+  -ms-transform: translateX(-2em);
+  -o-transform: translateX(-2em);
+}
+
+.classes-parent:focus .classes-menu,
+.classes-parent:focus-within .classes-menu,
+.classes-parent:hover .classes-menu {
+  visibility: visible;
+  /*showssub-menu*/opacity: 1;
+  z-index: 1;
+  background-color: rgba(41, 41, 41,0.8);
+  transform: translateY(-150%);
+  -webkit-transform: translateY(-150%);
+  -moz-transform: translateY(-150%);
+  -ms-transform: translateY(-150%);
+  -o-transform: translateY(-150%);
+}
+.logo{
+  margin-left: 50px;
+}
+
+.ally-bg{
+  background-image: url('./assets/allybg.png'), linear-gradient(177.69deg, rgba(20, 20, 20, .6) 25.94%, #134383 82.58%);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  animation: fadeIn 300ms ease-in;
+  -webkit-animation: fadeIn 300ms ease-in;
+}
+
+
+.horde-bg{
+  background-image: url('./assets/hordebg.png'), linear-gradient(177.69deg, rgba(20, 20, 20, .6) 25.94%, #8C1616 82.58%);
+  background-position: center;
+  background-size:cover;
+  background-attachment: fixed;
+  animation: fadeIn 300ms ease-in;
+  -webkit-animation: fadeIn 300ms ease-in;
+}
+
+.gif-bg{
+    background-image: url('./assets/image\ 36.png'), linear-gradient(to bottom, rgba(21, 21, 21, 0.4), rgba(0, 0, 0, 0.9));
+    background-position: center;
+    background-size:cover;
+    background-attachment: fixed;
+    animation: fadeIn 230ms ease-in;
+    -webkit-animation: fadeIn 230ms ease-in;
+}
+
+.expansions-bg{
+  background-image: url('./assets/image\ 35.png'), linear-gradient(177.69deg, rgba(20, 20, 20, .2) 25.94%, rgba(20,20,20, 8) 82.58%);
+  background-position: center;
+  background-size:cover;
+  background-attachment: fixed;
+  animation: fadeIn 300ms ease-in;
+  -webkit-animation: fadeIn 300ms ease-in;
+}
+.classes-bg{
+  background-image: url('./assets/image\ 33.png'), linear-gradient(177.69deg, rgba(20, 20, 20, .2) 25.94%, rgba(20,20,20, .8 )82.58%);
+  background-position: center;
+  background-size:cover;
+  background-attachment: fixed;
+  animation: fadeIn 300ms ease-in;
+}
+
+/*Classes BG*/
+
+.rogue-bg{
+  background-image: url('./assets/image\ 11.png'), linear-gradient(177.69deg, rgba(20, 20, 20, .6) 55.94%, #FFF468 99.58%);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  animation: fadeIn 300ms ease-in;
+}
+.warrior-bg{
+  background-image: url('./assets/warrior-bg.png'), linear-gradient(177.69deg, rgba(20, 20, 20, .6) 55.94%, #C69B6D 99%);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+   animation: fadeIn 300ms ease-in;
+}
+
+.warlock-bg{
+  background-image: url('./assets/warlock-bg.png'), linear-gradient(177.69deg, rgba(20, 20, 20, .6) 55.94%, #8788EE93 99%);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+   animation: fadeIn 300ms ease-in;
+}
+
+.priest-bg{
+  background-image: url('./assets/priest-bg.png'), linear-gradient(177.69deg, rgba(20, 20, 20, .6) 55.94%, #fff 99%);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+   animation: fadeIn 300ms ease-in;
+}
+
+.mage-bg{
+  background-image: url('./assets/mage-bg.png'), linear-gradient(177.69deg, rgba(20, 20, 20, .6) 55.94%, #3FC7EB 99%);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+   animation: fadeIn 300ms ease-in;
+}
+.hunter-bg{
+  background-image: url('./assets/hunter-bg.png'), linear-gradient(177.69deg, rgba(20, 20, 20, .6) 55.94%, #AAD372 99%);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+   animation: fadeIn 300ms ease-in;
+}
+.shaman-bg{
+  background-image: url('./assets/shaman-bg.png'), linear-gradient(177.69deg, rgba(20, 20, 20, .6) 55.94%, #0070DD 99%);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+   animation: fadeIn 300ms ease-in;
+}
+.pally-bg{
+  background-image: url('./assets/pally-bg.png'), linear-gradient(177.69deg, rgba(20, 20, 20, .6) 55.94%, #F48CBA 99%);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+   animation: fadeIn 300ms ease-in;
+}
+.monk-bg{
+  background-image: url('./assets/monk-bg.png'), linear-gradient(177.69deg, rgba(20, 20, 20, .6) 55.94%, #00FF98 99%);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+   animation: fadeIn 300ms ease-in;
+}
+.druid-bg{
+  background-image: url('./assets/druid-bg.png'), linear-gradient(177.69deg, rgba(20, 20, 20, .6) 55.94%, #FF7C0A 99%);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+   animation: fadeIn 300ms ease-in;
+}
+.dk-bg{
+  background-image: url('./assets/dk-bg.png'), linear-gradient(177.69deg, rgba(20, 20, 20, .6) 55.94%, #C41E3A 99%);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+   animation: fadeIn 300ms ease-in;
+}
+.dh-bg{
+  background-image: url('./assets/dh-bg.png'), linear-gradient(177.69deg, rgba(20, 20, 20, .6) 55.94%, #A330C9 99%);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+   animation: fadeIn 300ms ease-in;
+}
+
+/*Expansions BG*/
+
+.tbc-bg{
+  background-image: url('./assets/tbc-bg.png'), linear-gradient(177.69deg, rgba(20, 20, 20, .6) 55.94%, #B4D54D 99%);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+   animation: fadeIn 300ms ease-in;
+}
+
+.wotlk-bg{
+  background-image: url('./assets/wotlk-bg.png'), linear-gradient(177.69deg, rgba(20, 20, 20, .6) 55.94%, #0AC2D4 99%);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+   animation: fadeIn 300ms ease-in;
+}
+.cata-bg{
+  background-image: url('./assets/cata-bg.png'), linear-gradient(177.69deg, rgba(20, 20, 20, .6) 55.94%, #AA2512 99%);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+   animation: fadeIn 300ms ease-in;
+}
+
+.mop-bg{
+  background-image: url('./assets/image\ 30.png'), linear-gradient(177.69deg, rgba(20, 20, 20, .6) 55.94%, #73541D 99%);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+   animation: fadeIn 300ms ease-in;
+}
+.wod-bg{
+  background-image: url('./assets/wod-bg.png'), linear-gradient(177.69deg, rgba(20, 20, 20, .6) 55.94%, #CF6050 99%);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+   animation: fadeIn 300ms ease-in;
+}
+.shadowlands-bg{
+  background-image: url('./assets/shadowlands-bg.png'), linear-gradient(177.69deg, rgba(20, 20, 20, .6) 55.94%, #3B3A3A 99%);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+   animation: fadeIn 300ms ease-in;
+}
+.legion-bg{
+  background-image: url('./assets/legion-bg.png'), linear-gradient(177.69deg, rgba(20, 20, 20, .6) 55.94%, #3FB64D 99%);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+   animation: fadeIn 300ms ease-in;
+}
+.boa-bg{
+  background-image: url('./assets/boa-bg.png'), linear-gradient(177.69deg, rgba(20, 20, 20, .6) 55.94%, #AAA9AD 99%);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+   animation: fadeIn 300ms ease-in;
+}
+
+
+.fadeIn{
+  transition: .5s;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  animation: fadeIn 1s ease-in forwards;
+  -webkit-animation: fadeIn 1s ease-in forwards;
+}
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.fadeIn-1{
+  transition: 1s;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -ms-transition: 1s;
+  -o-transition: 1s;
+  animation: fadeIn-1 1.5s ease-in forwards;
+  -webkit-animation: fadeIn-1 1.5s ease-in forwards;
+}
+@keyframes fadeIn-1{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.fadeIn-2{
+  transition: 1.5s;
+  -webkit-transition: 1.5s;
+  -moz-transition: 1.5s;
+  -ms-transition: 1.5s;
+  -o-transition: 1.5s;
+  animation: fadeIn-1 2s ease-in forwards;
+  -webkit-animation: fadeIn-1 2s ease-in forwards;
+}
+@keyframes fadeIn-2{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.fadeIn-3{
+  transition: 2s;
+  -webkit-transition: 2s;
+  -moz-transition: 2s;
+  -ms-transition: 2s;
+  -o-transition: 2s;
+  animation: fadeIn-1 2.5s ease-in forwards;
+  -webkit-animation: fadeIn-1 2.5s ease-in forwards;
+}
+@keyframes fadeIn-3{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.fadeIn-4{
+  transition: 2.5s;
+  -webkit-transition: 2.5s;
+  -moz-transition: 2.5s;
+  -ms-transition: 2.5s;
+  -o-transition: 2.5s;
+  animation: fadeIn-1 3s ease-in forwards;
+  -webkit-animation: fadeIn-1 3s ease-in forwards;
+}
+@keyframes fadeIn-4{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.fadeIn-5{
+  transition: 3s;
+  -webkit-transition: 3s;
+  -moz-transition: 3s;
+  -ms-transition: 3s;
+  -o-transition: 3s;
+  animation: fadeIn-1 3.5s ease-in forwards;
+  -webkit-animation: fadeIn-1 3.5s ease-in forwards;
+}
+@keyframes fadeIn-5{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.fadeIn-6{
+  transition: 3.5s;
+  -webkit-transition: 3.5s;
+  -moz-transition: 3.5s;
+  -ms-transition: 3.5s;
+  -o-transition: 3.5s;
+  animation: fadeIn-1 4s ease-in forwards;
+  -webkit-animation: fadeIn-1 4s ease-in forwards;
+}
+@keyframes fadeIn-6{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.fadeIn-7{
+  transition: 4s;
+  -webkit-transition: 4s;
+  -moz-transition: 4s;
+  -ms-transition: 4s;
+  -o-transition: 4s;
+  animation: fadeIn-1 4.5s ease-in forwards;
+  -webkit-animation: fadeIn-1 4.5s ease-in forwards;
+}
+@keyframes fadeIn-7{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.fadeIn-8{
+  transition: 4.5s;
+  -webkit-transition: 4.5s;
+  -moz-transition: 4.5s;
+  -ms-transition: 4.5s;
+  -o-transition: 4.5s;
+  animation: fadeIn-1 5s ease-in forwards;
+  -webkit-animation: fadeIn-1 5s ease-in forwards;
+}
+@keyframes fadeIn-8{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.fadeIn-9{
+  transition: 5s;
+  -webkit-transition: 5s;
+  -moz-transition: 5s;
+  -ms-transition: 5s;
+  -o-transition: 5s;
+  animation: fadeIn-1 5.5s ease-in forwards;
+  -webkit-animation: fadeIn-1 5.5s ease-in forwards;
+}
+@keyframes fadeIn-9{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.fadeIn-10{
+  transition: 5.5s;
+  -webkit-transition: 5.5s;
+  -moz-transition: 5.5s;
+  -ms-transition: 5.5s;
+  -o-transition: 5.5s;
+  animation: fadeIn-1 6s ease-in forwards;
+  -webkit-animation: fadeIn-1 6s ease-in forwards;
+}
+@keyframes fadeIn-10{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.fadeIn-11{
+  transition: 6s;
+  -webkit-transition: 6s;
+  -moz-transition: 6s;
+  -ms-transition: 6s;
+  -o-transition: 6s;
+  animation: fadeIn-1 6.5s ease-in forwards;
+  -webkit-animation: fadeIn-1 6.5s ease-in forwards;
+}
+@keyframes fadeIn-11{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
 }
 
-.App-link {
-  color: #61dafb;
+.slide-in-right{
+  transition:.3s;
+  animation: slide-in-right .6s ease forwards;
+  -webkit-transition:.3s;
+  -moz-transition:.3s;
+  -ms-transition:.3s;
+  -o-transition:.3s;
+  -webkit-animation: slide-in-right .4s ease forwards;
 }
-
-@keyframes App-logo-spin {
+@keyframes slide-in-right {
   from {
-    transform: rotate(0deg);
+    margin-right: -100%;
+   
   }
+
   to {
-    transform: rotate(360deg);
+    margin-right: 0%;
+    
+  }
+}
+
+.slide-in-left{
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+  animation: slide-in-left .4s ease forwards;
+  -webkit-animation: slide-in-left .4s ease forwards;
+}
+
+@keyframes slide-in-left {
+  from {
+    margin-left: -100%;
+    width: -600px;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 600px;
   }
 }
